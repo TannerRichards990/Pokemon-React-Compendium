@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-import { fetchPokemon, fetchTypes } from '../services/pokemon.js';
+import { fetchPokemon, fetchPokemonTypes } from '../services/pokemon.js';
 
 export default function usePokemon() {
   const [pokemonList, setPokemonList] = useState([]);
@@ -13,31 +13,30 @@ export default function usePokemon() {
   useEffect(() => {
     const fetchData = async (selectedType, searchPokemon) => {
       try {
-        const fetchData = async (selectedType, searchPokemon) => {
-          setPokemonList(data);
-          setLoading(false);
-        };
-      } catch (error) {
-        console.log(error);
+        const data = await fetchPokemon (selectedType, searchPokemon);
+        setPokemonList(data);
+        setLoading(false);
+      } catch (err) {
+        console.log(err);
       }
-    }; 
+    };
 
     fetchData(selectedType, searchPokemon);
   }, [selectedType, searchPokemon]);
 
   useEffect(() => {
-    const fetchTypes = async () => {
+    const fetchPokemonTypes = async () => {
       try {
-        const data = await fetchTypes();
+        const data = await fetchPokemonTypes();
         setTypes(data.map((type) => type.type));
       }
       catch (error) {
         console.log(error);
       }
     };
-    fetchTypes();
+    fetchPokemonTypes();
   }, []);
 
-  return { pokemonList, loading, types, selectedType, setSelectedType, searchPokemon };
+  return { pokemonList, loading, types, selectedType, setSelectedType, searchPokemon, setSearchPokemon };
 
 } 

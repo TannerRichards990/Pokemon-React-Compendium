@@ -1,6 +1,6 @@
-import Filter from './Filter/Filter';
-import SearchPokemon from './SearchPokemon/SearchPokemon';
-import './Controls.css';
+import Filter from '../Filter/Filter';
+import SearchPokemon from '../SearchPokemon/SearchPokemon';
+
 
 export default function Controls({ types, selectedType, setSelectedType, setSearchPokemon }) {
   return (
