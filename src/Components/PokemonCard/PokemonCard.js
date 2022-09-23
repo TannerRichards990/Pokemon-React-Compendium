@@ -4,7 +4,7 @@ export default function PokemonCard({ pokemon, url_image, type_1, type_2, hp }) 
   return (
     <div className="pokemon-card">
       <div className="pokemon-card__image">
-        <img src={url_image} alt={pokemon} />
+        <img className='pokemon_img' src={url_image} alt={pokemon} />
       </div>
       <div className="pokemon-card__info">
         <h3 className="pokemon-card__name">{pokemon}</h3>
