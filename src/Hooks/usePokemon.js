@@ -18,7 +18,8 @@ export default function usePokemon() {
         setPokemonList(data);
         setLoading(false);
       } catch (err) {
-        console.log(err);
+        //eslint-disable-next-line no-console
+        console.error(err);
       }
     };
 
@@ -31,8 +32,9 @@ export default function usePokemon() {
         const data = await fetchPokemonTypes();
         setTypes(data.map((type) => type.type));
       }
-      catch (error) {
-        console.log(error);
+      catch (err) {
+        //eslint-disable-next-line no-console
+        console.error(err);
       }
     };
     fetchTypes();
