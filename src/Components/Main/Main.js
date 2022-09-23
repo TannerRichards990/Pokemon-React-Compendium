@@ -15,7 +15,7 @@ export default function Main() {
     setSearchPokemon,
   } = usePokemon();
 
-  if (loading) return <div className="loading"></div>;
+  if (loading) return <div className="loading">Loading...</div>;
   return (
     <div className="main">
       <Controls types={types} selectedType={selectedType} 

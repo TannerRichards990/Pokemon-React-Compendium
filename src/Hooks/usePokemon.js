@@ -13,6 +13,7 @@ export default function usePokemon() {
   useEffect(() => {
     const fetchData = async (selectedType, searchPokemon) => {
       try {
+        setLoading(true);
         const data = await fetchPokemon (selectedType, searchPokemon);
         setPokemonList(data);
         setLoading(false);
@@ -25,7 +26,7 @@ export default function usePokemon() {
   }, [selectedType, searchPokemon]);
 
   useEffect(() => {
-    const fetchPokemonTypes = async () => {
+    const fetchTypes = async () => {
       try {
         const data = await fetchPokemonTypes();
         setTypes(data.map((type) => type.type));
@@ -34,7 +35,7 @@ export default function usePokemon() {
         console.log(error);
       }
     };
-    fetchPokemonTypes();
+    fetchTypes();
   }, []);
 
   return { pokemonList, loading, types, selectedType, setSelectedType, searchPokemon, setSearchPokemon };
