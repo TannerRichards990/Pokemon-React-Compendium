@@ -14,6 +14,9 @@ export default function Main() {
     selectedType,
     setSelectedType,
     setSearchPokemon,
+    pageTotal,
+    changePage,
+    setChangePage,
   } = usePokemon();
 
   if (loading) return <div className="loading"><BarLoader
@@ -24,7 +27,8 @@ export default function Main() {
   return (
     <div className="main">
       <Controls types={types} selectedType={selectedType} 
-        setSelectedType={setSelectedType} setSearchPokemon={setSearchPokemon} />
+        setSelectedType={setSelectedType} setSearchPokemon={setSearchPokemon}
+        pageTotal={pageTotal} changePage={changePage} setChangePage={setChangePage} />
       <PokemonList pokemonList={pokemonList} />
     </div>
   );

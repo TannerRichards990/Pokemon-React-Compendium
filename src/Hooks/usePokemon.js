@@ -8,14 +8,17 @@ export default function usePokemon() {
   const [searchPokemon, setSearchPokemon] = useState('');
   const [selectedType, setSelectedType] = useState('all');
   const [types, setTypes] = useState([]);
+  const [pageTotal, setPageTotal] = useState(1);
+  const [changePage, setChangePage] = useState(1);
 
 
   useEffect(() => {
-    const fetchData = async (selectedType, searchPokemon) => {
+    const fetchData = async (selectedType, searchPokemon, changePage) => {
       try {
         setLoading(true);
-        const data = await fetchPokemon (selectedType, searchPokemon);
+        const data = await fetchPokemon (selectedType, searchPokemon, changePage);
         setPokemonList(data);
+        setPageTotal(Math.ceil(data.count / 15));
         setLoading(false);
       } catch (err) {
         //eslint-disable-next-line no-console
@@ -23,8 +26,8 @@ export default function usePokemon() {
       }
     };
 
-    fetchData(selectedType, searchPokemon);
-  }, [selectedType, searchPokemon]);
+    fetchData(selectedType, searchPokemon, changePage);
+  }, [selectedType, searchPokemon, changePage]);
 
   useEffect(() => {
     const fetchTypes = async () => {
@@ -40,6 +43,6 @@ export default function usePokemon() {
     fetchTypes();
   }, []);
 
-  return { pokemonList, loading, types, selectedType, setSelectedType, searchPokemon, setSearchPokemon };
+  return { pokemonList, loading, types, selectedType, setSelectedType, searchPokemon, setSearchPokemon, pageTotal, changePage, setChangePage };
 
 } 
