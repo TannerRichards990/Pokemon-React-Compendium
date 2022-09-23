@@ -1,0 +1,19 @@
+.pokemon_img {
+    height: 200px;
+    width: 200px;
+    margin-top: 40px;
+}
+
+.pokemon-card {
+    background-image: url(../../../public/assets/pokemon-card.jpg);
+    width: 450px;
+    height: 500px;
+    border-radius: 15px;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+.card-stats {
+    margin-top: 80px;
+    font-size: 2rem;
+}
