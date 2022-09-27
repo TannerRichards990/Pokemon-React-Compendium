@@ -1,0 +1,17 @@
+header {
+  display: flex;
+  margin-bottom: 10px;
+  width: 100vw;
+  height: 200px;
+  justify-content: center;
+  background-image: url(../../../public/assets/pokemon-header-2.png);
+  margin-bottom: 15px;
+
+}
+
+.pokemon-logo {
+  width: 30vw;
+  background-size: cover;
+  background-repeat: no-repeat;
+  
+}

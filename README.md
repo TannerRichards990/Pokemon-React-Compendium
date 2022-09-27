@@ -51,3 +51,25 @@ If you work on more than one feature at a time, you are guaranteed to multiply y
 ## Additional considerations
 - Is any of your state redundant? For example, if you're tracking `wins`, `losses`, and `total`, you can probably get rid of `losses` state, and calculate it as `total - wins`.
 - Where should each piece of state live? How are you going to get data from where it lives to where it needs to be?
+
+##Pokemon Plan
+
+## Components
+ - Compendium -- Main Component
+ - Select -- dropdown selector
+ - Search -- searcher
+ Pokemon -- display Pokemon Details
+
+ ## State
+- Pokemon -- loaded from API
+- Types -- loaded from API
+- SelectType -- controlled by selector component
+- searchTerm -- controlled by search component
+- loading -- boolean
+
+## Events
+ - page-load -- load the list of pokemon and list of types {useEffect}
+ - select-change -- update the selectedType state, and also reload the pokemon (API call)
+ - Filter-through-type -- Use input filter function to filter between pokemon types, displaying list of that type of pokemon.
+ - Search -- Search function as a control part to be able to search specific pokemon
+ - Page Change based on set params -- Build change page into {fetchHook}, set params of perPage, and use Math.Ceil to control how many pages are able to render based on Pokemon type amounts.
