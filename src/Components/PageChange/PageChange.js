@@ -20,7 +20,7 @@ export default function PageChange({ pageTotal, changePage, setChangePage }) {
           setChangePage((prevState) => {
             if (prevState !== pageTotal) return prevState + 1;
             else {
-              console.log(pageTotal);
+            
               return pageTotal;
             }
           });
