@@ -14,12 +14,13 @@ export default function PageChange({ pageTotal, changePage, setChangePage }) {
         
         }}>Page-Back
       </button>
-      <div className='page-change'>{changePage} / {pageTotal} </div>
+      <div className='page-change'>Page:{changePage} </div>
       <button className='page-change-button'
         onClick={() => {
           setChangePage((prevState) => {
             if (prevState !== pageTotal) return prevState + 1;
             else {
+              console.log(pageTotal);
               return pageTotal;
             }
           });

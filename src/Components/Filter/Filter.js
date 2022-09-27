@@ -1,11 +1,11 @@
 import React from 'react';
 
-export default function Filter({ types, selectedType, setSelectedType, setChangePage }) {
+export default function Filter({ types, selectedType, setSelectedType, }) {
   return (
     <div className="filter">
       <select value={selectedType} onChange={(e) => {
         setSelectedType(e.target.value);
-        setChangePage(1);}}
+      }}
       >
         <option value="all">All</option>
         {types.map((type) => (
